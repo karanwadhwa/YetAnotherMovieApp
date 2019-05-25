@@ -1,15 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-class HomeScreen extends React.Component {
+class FavouritesScreen extends React.Component {
   static navigationOptions = {
-    title: "Home"
+    title: "Favourites"
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Home</Text>
+        <Text>Favourites</Text>
       </View>
     );
   }
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default FavouritesScreen;
