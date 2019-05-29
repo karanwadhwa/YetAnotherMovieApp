@@ -41,8 +41,12 @@ export default class App extends React.Component {
       Font.loadAsync({
         // This is the font that we are using for our tab bar
         ...Icon.Ionicons.font,
-        // We include SpaceMono because we use it in HomeScreen.js. Feel free
-        // to remove this if you are not using it in your app
+        "nunito-regular": require("./assets/fonts/Nunito-Regular.ttf"),
+        "nunito-light": require("./assets/fonts/Nunito-Light.ttf"),
+        "nunito-bold": require("./assets/fonts/Nunito-Bold.ttf"),
+        "nunito-extra-bold": require("./assets/fonts/Nunito-ExtraBold.ttf"),
+        "Rubik-Regular": require("./assets/fonts/Rubik-Regular.ttf"),
+        "rubicon-icon-font": require("./assets/fonts/rubicon-icon-font.ttf"),
         "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf")
       })
     ]);
