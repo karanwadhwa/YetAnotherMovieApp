@@ -8,6 +8,8 @@ import {
   ActivityIndicator
 } from "react-native";
 
+import Carousel from "../components/Carousel";
+
 import {
   fetchPopularMovies,
   fetchTopRatedMovies,
@@ -70,6 +72,10 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+        {this.props.movies.popular && (
+          <Carousel items={this.props.movies.popular} />
+        )}
+
         <Text>---------Popular-------------</Text>
         {this.renderPopularMovies()}
 
