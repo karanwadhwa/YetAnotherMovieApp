@@ -1,15 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  ScrollView,
-  TextInput,
-  StyleSheet,
-  ActivityIndicator,
-  TouchableOpacity
-} from "react-native";
+import { ScrollView, TextInput, StyleSheet } from "react-native";
 import { View, Text } from "@shoutem/ui";
 
 import Carousel from "../components/Carousel";
+import ShortList from "../components/ShortList";
 
 import { fetchPopularTV, fetchTopRatedTV } from "../store/actions/tv";
 
@@ -23,22 +18,6 @@ class TVScreen extends React.Component {
     this.props.fetchPopularTV();
     this.props.fetchTopRatedTV();
   }
-
-  renderPopularTV = () => {
-    return this.props.tv.popular ? (
-      this.props.tv.popular.map(show => <Text key={show.id}>{show.name}</Text>)
-    ) : (
-      <ActivityIndicator />
-    );
-  };
-
-  renderTopRatedTV = () => {
-    return this.props.tv.topRated ? (
-      this.props.tv.topRated.map(show => <Text key={show.id}>{show.name}</Text>)
-    ) : (
-      <ActivityIndicator />
-    );
-  };
 
   render() {
     return (
@@ -64,11 +43,8 @@ class TVScreen extends React.Component {
 
         {this.props.tv.popular && <Carousel items={this.props.tv.popular} />}
 
-        <Text>---------Popular-------------</Text>
-        {this.renderPopularTV()}
-
-        <Text>---------Top Rated-----------</Text>
-        {this.renderTopRatedTV()}
+        <ShortList title="Popular" data={this.props.tv.popular} />
+        <ShortList title="Top Rated" data={this.props.tv.topRated} />
       </ScrollView>
     );
   }

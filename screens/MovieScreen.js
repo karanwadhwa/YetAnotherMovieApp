@@ -1,15 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  ScrollView,
-  TextInput,
-  StyleSheet,
-  ActivityIndicator,
-  TouchableOpacity
-} from "react-native";
+import { ScrollView, TextInput, StyleSheet } from "react-native";
 import { View, Text } from "@shoutem/ui";
 
 import Carousel from "../components/Carousel";
+import ShortList from "../components/ShortList";
 
 import {
   fetchPopularMovies,
@@ -30,46 +25,6 @@ class MovieScreen extends React.Component {
     this.props.fetchNowPlayingMovies();
     this.props.fetchUpcomingMovies();
   }
-
-  renderPopularMovies = () => {
-    return this.props.movies.popular ? (
-      this.props.movies.popular.map(movie => (
-        <Text key={movie.id}>{movie.original_title}</Text>
-      ))
-    ) : (
-      <ActivityIndicator />
-    );
-  };
-
-  renderTopRatedMovies = () => {
-    return this.props.movies.topRated ? (
-      this.props.movies.topRated.map(movie => (
-        <Text key={movie.id}>{movie.original_title}</Text>
-      ))
-    ) : (
-      <ActivityIndicator />
-    );
-  };
-
-  renderNowPlayingMovies = () => {
-    return this.props.movies.nowPlaying ? (
-      this.props.movies.nowPlaying.map(movie => (
-        <Text key={movie.id}>{movie.original_title}</Text>
-      ))
-    ) : (
-      <ActivityIndicator />
-    );
-  };
-
-  renderUpcomingMovies = () => {
-    return this.props.movies.upcoming ? (
-      this.props.movies.upcoming.map(movie => (
-        <Text key={movie.id}>{movie.title}</Text>
-      ))
-    ) : (
-      <ActivityIndicator />
-    );
-  };
 
   render() {
     return (
@@ -97,17 +52,10 @@ class MovieScreen extends React.Component {
           <Carousel items={this.props.movies.popular} />
         )}
 
-        <Text>---------Popular-------------</Text>
-        {this.renderPopularMovies()}
-
-        <Text>---------Top Rated-----------</Text>
-        {this.renderTopRatedMovies()}
-
-        <Text>---------Now Playing--------</Text>
-        {this.renderNowPlayingMovies()}
-
-        <Text>---------Upcoming-----------</Text>
-        {this.renderUpcomingMovies()}
+        <ShortList title="Popular" data={this.props.movies.popular} />
+        <ShortList title="Top Rated" data={this.props.movies.topRated} />
+        <ShortList title="Now Playing" data={this.props.movies.nowPlaying} />
+        <ShortList title="Upcoming" data={this.props.movies.upcoming} />
       </ScrollView>
     );
   }

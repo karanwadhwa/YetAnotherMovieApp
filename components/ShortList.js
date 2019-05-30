@@ -8,10 +8,16 @@ class ShortList extends Component {
   render() {
     const { title, data } = this.props;
     return (
-      <View>
+      <View
+        style={{
+          marginBottom: 30
+        }}
+      >
         <View
           styleName="horizontal space-between v-center"
-          style={{ marginVertical: 15 }}
+          style={{
+            marginBottom: 15
+          }}
         >
           <Text style={styles.titleText}>{title}</Text>
           <Text style={{ color: "#FFF", opacity: 0.6 }}>
@@ -20,7 +26,8 @@ class ShortList extends Component {
         </View>
         <FlatList
           horizontal
-          data={this.props.data}
+          data={data}
+          keyExtractor={item => item.id.toString()}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={{
@@ -50,7 +57,6 @@ class ShortList extends Component {
               </Text>
             </TouchableOpacity>
           )}
-          keyExtractor={item => item.id.toString()}
         />
       </View>
     );
