@@ -28,6 +28,7 @@ class Carousel extends Component {
             ({
               id,
               title,
+              name,
               backdrop_path,
               poster_path,
               vote_average,
@@ -57,11 +58,11 @@ class Carousel extends Component {
                       }}
                     >
                       <Title styleName="multiline" style={styles.posterText}>
-                        {title}
+                        {title || name}
                       </Title>
 
                       <Title style={styles.posterText}>
-                        <Ionicon name="ios-star" size={18} color="#EEBB22" />{" "}
+                        <Ionicon name="ios-star" size={18} color="#FFCF00" />{" "}
                         {vote_average}
                       </Title>
                       {this.renderGenres(genre_ids)}
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#141B31",
     color: "#FFF",
     paddingHorizontal: 5,
-    marginBottom: 3
+    marginBottom: 3,
+    opacity: 0.9
   }
 });

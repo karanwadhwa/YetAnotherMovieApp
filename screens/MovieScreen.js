@@ -78,7 +78,7 @@ class MovieScreen extends React.Component {
           styleName="horizontal space-between v-center"
           style={{ paddingBottom: 10 }}
         >
-          <Text style={{ fontSize: 60, color: "#FFF" }}>Movies</Text>
+          <Text style={{ fontSize: 45, color: "#FFF" }}>Movies</Text>
           <TextInput
             placeholder="Search"
             style={{
@@ -88,7 +88,6 @@ class MovieScreen extends React.Component {
               padding: 3,
               color: "#FFF",
               borderRadius: 3,
-              marginTop: 5,
               textAlign: "center"
             }}
           />

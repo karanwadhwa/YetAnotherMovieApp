@@ -6,22 +6,29 @@ import {
 import { Icon } from "expo";
 
 import MovieScreen from "../screens/MovieScreen";
+import TVScreen from "../screens/TVScreen";
 import DiscoverScreen from "../screens/DiscoverScreen";
 import FavouritesScreen from "../screens/FavouritesScreen";
 
 const MovieStack = createStackNavigator({
-  Home: MovieScreen
+  Movies: MovieScreen
 });
 
 MovieStack.navigationOptions = {
   tabBarLabel: "Movies",
   tabBarIcon: ({ tintColor }) => (
-    <Icon.Feather
-      name="film"
-      size={24}
-      style={{ marginBottom: -3 }}
-      color={tintColor}
-    />
+    <Icon.Feather name="film" size={24} color={tintColor} />
+  )
+};
+
+const TVStack = createStackNavigator({
+  TV: TVScreen
+});
+
+TVStack.navigationOptions = {
+  tabBarLabel: "TV",
+  tabBarIcon: ({ tintColor }) => (
+    <Icon.Feather name="tv" size={24} color={tintColor} />
   )
 };
 
@@ -32,12 +39,7 @@ const DiscoverStack = createStackNavigator({
 DiscoverStack.navigationOptions = {
   tabBarLabel: "Discover",
   tabBarIcon: ({ tintColor }) => (
-    <Icon.Feather
-      name="home"
-      size={24}
-      style={{ marginBottom: -3 }}
-      color={tintColor}
-    />
+    <Icon.Feather name="home" size={24} color={tintColor} />
   )
 };
 
@@ -48,18 +50,14 @@ const FavouritesStack = createStackNavigator({
 FavouritesStack.navigationOptions = {
   tabBarLabel: "Favourites",
   tabBarIcon: ({ tintColor }) => (
-    <Icon.Feather
-      name="home"
-      size={24}
-      style={{ marginBottom: -3 }}
-      color={tintColor}
-    />
+    <Icon.Feather name="home" size={24} color={tintColor} />
   )
 };
 
 const MainTabNavigator = createBottomTabNavigator(
   {
     MovieStack,
+    TVStack,
     DiscoverStack,
     FavouritesStack
   },
