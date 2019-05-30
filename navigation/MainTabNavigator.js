@@ -5,19 +5,19 @@ import {
 } from "react-navigation";
 import { Icon } from "expo";
 
-import HomeScreen from "../screens/HomeScreen";
+import MovieScreen from "../screens/MovieScreen";
 import DiscoverScreen from "../screens/DiscoverScreen";
 import FavouritesScreen from "../screens/FavouritesScreen";
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen
+const MovieStack = createStackNavigator({
+  Home: MovieScreen
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: "Home",
+MovieStack.navigationOptions = {
+  tabBarLabel: "Movies",
   tabBarIcon: ({ tintColor }) => (
     <Icon.Feather
-      name="home"
+      name="film"
       size={24}
       style={{ marginBottom: -3 }}
       color={tintColor}
@@ -57,10 +57,20 @@ FavouritesStack.navigationOptions = {
   )
 };
 
-const MainTabNavigator = createBottomTabNavigator({
-  HomeStack,
-  DiscoverStack,
-  FavouritesStack
-});
+const MainTabNavigator = createBottomTabNavigator(
+  {
+    MovieStack,
+    DiscoverStack,
+    FavouritesStack
+  },
+  {
+    tabBarOptions: {
+      showLabel: false,
+      style: {
+        backgroundColor: "#1E2846"
+      }
+    }
+  }
+);
 
 export default MainTabNavigator;

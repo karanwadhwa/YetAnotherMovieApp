@@ -18,9 +18,9 @@ import {
   fetchNowPlayingMovies
 } from "../store/actions/movies";
 
-class HomeScreen extends React.Component {
+class MovieScreen extends React.Component {
   static navigationOptions = {
-    title: "Home",
+    title: "Movies",
     header: null
   };
 
@@ -136,4 +136,4 @@ export default connect(
     fetchUpcomingMovies,
     fetchNowPlayingMovies
   }
-)(HomeScreen);
+)(MovieScreen);
