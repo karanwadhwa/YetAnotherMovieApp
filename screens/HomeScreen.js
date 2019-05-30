@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   ScrollView,
+  TextInput,
   StyleSheet,
-  Text,
-  View,
-  ActivityIndicator
+  ActivityIndicator,
+  TouchableOpacity
 } from "react-native";
+import { View, Text } from "@shoutem/ui";
 
 import Carousel from "../components/Carousel";
 
@@ -19,7 +20,8 @@ import {
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: "Home"
+    title: "Home",
+    header: null
   };
 
   componentDidMount() {
@@ -72,6 +74,26 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+        <View
+          styleName="horizontal space-between v-center"
+          style={{ paddingBottom: 10 }}
+        >
+          <Text style={{ fontSize: 60, color: "#FFF" }}>Movies</Text>
+          <TextInput
+            placeholder="Search"
+            style={{
+              backgroundColor: "#1E2846",
+              height: 30,
+              width: 150,
+              padding: 3,
+              color: "#FFF",
+              borderRadius: 3,
+              marginTop: 5,
+              textAlign: "center"
+            }}
+          />
+        </View>
+
         {this.props.movies.popular && (
           <Carousel items={this.props.movies.popular} />
         )}
@@ -96,7 +118,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    backgroundColor: "#fff"
+    backgroundColor: "#141B31"
   }
 });
 
