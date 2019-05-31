@@ -2,7 +2,8 @@ import {
   FETCH_MOVIES_POPULAR,
   FETCH_MOVIES_TOP_RATED,
   FETCH_MOVIES_UPCOMING,
-  FETCH_MOVIES_NOW_PLAYING
+  FETCH_MOVIES_NOW_PLAYING,
+  SET_SELECTED_MOVIE_LIST
 } from "./types";
 import { API_KEY } from "react-native-dotenv";
 
@@ -42,4 +43,11 @@ export const fetchNowPlayingMovies = () => dispatch => {
       payload: response.data.results
     });
   });
+};
+
+export const setSelectedMovieList = (listTitle, listData) => {
+  return {
+    type: SET_SELECTED_MOVIE_LIST,
+    payload: { listTitle, listData }
+  };
 };

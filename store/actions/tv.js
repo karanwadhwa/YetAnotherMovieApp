@@ -1,4 +1,8 @@
-import { FETCH_TV_POPULAR, FETCH_TV_TOP_RATED } from "./types";
+import {
+  FETCH_TV_POPULAR,
+  FETCH_TV_TOP_RATED,
+  SET_SELECTED_TV_LIST
+} from "./types";
 import { API_KEY } from "react-native-dotenv";
 
 import { tmdb } from "../../config/api";
@@ -19,4 +23,11 @@ export const fetchTopRatedTV = () => dispatch => {
       payload: response.data.results
     });
   });
+};
+
+export const setSelectedTVList = (listTitle, listData) => {
+  return {
+    type: SET_SELECTED_TV_LIST,
+    payload: { listTitle, listData }
+  };
 };

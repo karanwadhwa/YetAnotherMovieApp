@@ -1,8 +1,16 @@
-import { FETCH_TV_POPULAR, FETCH_TV_TOP_RATED } from "../actions/types";
+import {
+  FETCH_TV_POPULAR,
+  FETCH_TV_TOP_RATED,
+  SET_SELECTED_TV_LIST
+} from "../actions/types";
 
 initialState = {
   popular: [],
-  topRated: []
+  topRated: [],
+  selectedList: {
+    listTitle: "",
+    listData: []
+  }
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +24,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         topRated: action.payload
+      };
+    case SET_SELECTED_TV_LIST:
+      return {
+        ...state,
+        selectedList: {
+          listTitle: action.payload.listTitle,
+          listData: action.payload.listData
+        }
       };
     default:
       return state;
