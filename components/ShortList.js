@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import { FlatList, TouchableOpacity, StyleSheet } from "react-native";
+import { connect } from "react-redux";
+import { FlatList, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { Text, View, Caption } from "@shoutem/ui";
-import { Image } from "react-native-elements";
+import {} from "react-native-elements";
 import { Icon } from "expo";
+
+import { setSelectedMovieList } from "../store/actions/movies";
+import { setSelectedTVList } from "../store/actions/tv";
 
 class ShortList extends Component {
   render() {
-    const { title, data } = this.props;
+    const { title, data, navigation, navigateTo } = this.props;
     return (
       <View
         style={{
@@ -20,9 +24,25 @@ class ShortList extends Component {
           }}
         >
           <Text style={styles.titleText}>{title}</Text>
-          <Text style={{ color: "#FFF", opacity: 0.6 }}>
-            See All <Icon.Feather name="arrow-right" />
-          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              data[0].name
+                ? this.props.setSelectedTVList(title, data)
+                : this.props.setSelectedMovieList(title, data);
+              navigation.navigate(navigateTo);
+            }}
+          >
+            <Text
+              style={{
+                color: "#FFF",
+                opacity: 0.6,
+                paddingVertical: 5,
+                paddingLeft: 5
+              }}
+            >
+              See All <Icon.Feather name="arrow-right" />
+            </Text>
+          </TouchableOpacity>
         </View>
         <FlatList
           horizontal
@@ -63,7 +83,10 @@ class ShortList extends Component {
   }
 }
 
-export default ShortList;
+export default connect(
+  null,
+  { setSelectedMovieList, setSelectedTVList }
+)(ShortList);
 
 const styles = StyleSheet.create({
   titleText: {

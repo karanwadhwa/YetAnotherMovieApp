@@ -34,28 +34,37 @@ class MovieScreen extends React.Component {
           style={{ paddingBottom: 10 }}
         >
           <Text style={{ fontSize: 45, color: "#FFF" }}>Movies</Text>
-          <TextInput
-            placeholder="Search"
-            style={{
-              backgroundColor: "#1E2846",
-              height: 30,
-              width: 150,
-              padding: 3,
-              color: "#FFF",
-              borderRadius: 3,
-              textAlign: "center"
-            }}
-          />
+          <TextInput placeholder="Search" style={styles.searchBar} />
         </View>
 
         {this.props.movies.popular && (
           <Carousel items={this.props.movies.popular} />
         )}
 
-        <ShortList title="Popular" data={this.props.movies.popular} />
-        <ShortList title="Top Rated" data={this.props.movies.topRated} />
-        <ShortList title="Now Playing" data={this.props.movies.nowPlaying} />
-        <ShortList title="Upcoming" data={this.props.movies.upcoming} />
+        <ShortList
+          title="Popular"
+          data={this.props.movies.popular}
+          navigation={this.props.navigation}
+          navigateTo="MovieListScreen"
+        />
+        <ShortList
+          title="Top Rated"
+          data={this.props.movies.topRated}
+          navigation={this.props.navigation}
+          navigateTo="MovieListScreen"
+        />
+        <ShortList
+          title="Now Playing"
+          data={this.props.movies.nowPlaying}
+          navigation={this.props.navigation}
+          navigateTo="MovieListScreen"
+        />
+        <ShortList
+          title="Upcoming"
+          data={this.props.movies.upcoming}
+          navigation={this.props.navigation}
+          navigateTo="MovieListScreen"
+        />
       </ScrollView>
     );
   }
@@ -66,6 +75,15 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 15,
     backgroundColor: "#141B31"
+  },
+  searchBar: {
+    backgroundColor: "#1E2846",
+    height: 30,
+    width: 150,
+    padding: 3,
+    color: "#FFF",
+    borderRadius: 3,
+    textAlign: "center"
   }
 });
 

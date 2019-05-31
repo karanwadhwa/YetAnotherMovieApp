@@ -27,24 +27,23 @@ class TVScreen extends React.Component {
           style={{ paddingBottom: 10 }}
         >
           <Text style={{ fontSize: 45, color: "#FFF" }}>TV Shows</Text>
-          <TextInput
-            placeholder="Search"
-            style={{
-              backgroundColor: "#1E2846",
-              height: 30,
-              width: 150,
-              padding: 3,
-              color: "#FFF",
-              borderRadius: 3,
-              textAlign: "center"
-            }}
-          />
+          <TextInput placeholder="Search" style={styles.searchBar} />
         </View>
 
         {this.props.tv.popular && <Carousel items={this.props.tv.popular} />}
 
-        <ShortList title="Popular" data={this.props.tv.popular} />
-        <ShortList title="Top Rated" data={this.props.tv.topRated} />
+        <ShortList
+          title="Popular"
+          data={this.props.tv.popular}
+          navigation={this.props.navigation}
+          navigateTo="TVListScreen"
+        />
+        <ShortList
+          title="Top Rated"
+          data={this.props.tv.topRated}
+          navigation={this.props.navigation}
+          navigateTo="TVListScreen"
+        />
       </ScrollView>
     );
   }
@@ -55,6 +54,15 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 15,
     backgroundColor: "#141B31"
+  },
+  searchBar: {
+    backgroundColor: "#1E2846",
+    height: 30,
+    width: 150,
+    padding: 3,
+    color: "#FFF",
+    borderRadius: 3,
+    textAlign: "center"
   }
 });
 
