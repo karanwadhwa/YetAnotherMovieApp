@@ -57,7 +57,9 @@ class ShortList extends Component {
             >
               <Image
                 source={{
-                  uri: `https://image.tmdb.org/t/p/original${item.poster_path}`
+                  uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${
+                    item.poster_path
+                  }`
                 }}
                 style={styles.poster}
               />

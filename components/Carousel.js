@@ -12,7 +12,11 @@ class Carousel extends Component {
     let genres = Genres.filter(genre => genre_ids.includes(genre.id)).map(
       genre => genre.name
     );
-    return <Caption style={styles.posterText}>{genres.join(", ")}</Caption>;
+    return (
+      <Caption numberOfLines={2} style={styles.posterText}>
+        {genres.join(", ")}
+      </Caption>
+    );
   };
 
   render() {
@@ -38,7 +42,7 @@ class Carousel extends Component {
                 <View>
                   <Image
                     source={{
-                      uri: `https://image.tmdb.org/t/p/original${backdrop_path}`
+                      uri: `https://image.tmdb.org/t/p/w1000_and_h563_face${backdrop_path}`
                     }}
                     style={styles.backdrop}
                   />
@@ -46,7 +50,7 @@ class Carousel extends Component {
                   <View style={styles.posterContainer}>
                     <Image
                       source={{
-                        uri: `https://image.tmdb.org/t/p/original${poster_path}`
+                        uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`
                       }}
                       style={styles.poster}
                     />
@@ -57,7 +61,11 @@ class Carousel extends Component {
                         marginBottom: 15
                       }}
                     >
-                      <Title styleName="multiline" style={styles.posterText}>
+                      <Title
+                        styleName="multiline"
+                        numberOfLines={2}
+                        style={styles.posterText}
+                      >
                         {title || name}
                       </Title>
 
