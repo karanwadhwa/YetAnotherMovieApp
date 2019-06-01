@@ -6,12 +6,15 @@ import {
 import { Icon } from "expo";
 
 import MovieScreen from "../screens/MovieScreen";
+import MovieListScreen from "../screens/MovieListScreen";
 import TVScreen from "../screens/TVScreen";
+import TVListScreen from "../screens/TVListScreen";
 import DiscoverScreen from "../screens/DiscoverScreen";
 import FavouritesScreen from "../screens/FavouritesScreen";
 
 const MovieStack = createStackNavigator({
-  Movies: MovieScreen
+  Movies: MovieScreen,
+  MovieListScreen
 });
 
 MovieStack.navigationOptions = {
@@ -22,7 +25,8 @@ MovieStack.navigationOptions = {
 };
 
 const TVStack = createStackNavigator({
-  TV: TVScreen
+  TV: TVScreen,
+  TVListScreen
 });
 
 TVStack.navigationOptions = {
