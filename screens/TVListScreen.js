@@ -15,6 +15,7 @@ class TVListScreen extends Component {
         <LongList
           title={this.props.selectedList.listTitle}
           data={this.props.selectedList.listData}
+          navigation={this.props.navigation}
         />
       </ScrollView>
     );

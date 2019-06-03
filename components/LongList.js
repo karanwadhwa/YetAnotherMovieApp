@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   FlatList,
   TextInput,
@@ -11,6 +12,9 @@ import { Icon } from "expo";
 
 import Genres from "../constants/genres.js";
 
+import { selectMovie } from "../store/actions/movies";
+import { selectTV } from "../store/actions/tv";
+
 class LongList extends Component {
   renderGenres = genre_ids => {
     let genres = Genres.filter(genre => genre_ids.includes(genre.id)).map(
@@ -21,6 +25,16 @@ class LongList extends Component {
         {genres.join(", ")}
       </Caption>
     );
+  };
+
+  openSelectedPage = (id, title) => {
+    if (!!title) {
+      this.props.selectMovie(id);
+      this.props.navigation.navigate("SelectedMovieScreen");
+    } else {
+      this.props.selectTV(id);
+      this.props.navigation.navigate("SelectedTVScreen");
+    }
   };
 
   render() {
@@ -48,7 +62,9 @@ class LongList extends Component {
           keyExtractor={item => item.id.toString()}
           renderItem={({ item }) => {
             return (
-              <View style={styles.container}>
+              <TouchableOpacity
+                onPress={() => this.openSelectedPage(item.id, item.title)}
+              >
                 <Image
                   source={{
                     uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${
@@ -82,7 +98,7 @@ class LongList extends Component {
                     {this.renderGenres(item.genre_ids)}
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           }}
         />
@@ -91,7 +107,10 @@ class LongList extends Component {
   }
 }
 
-export default LongList;
+export default connect(
+  null,
+  { selectMovie, selectTV }
+)(LongList);
 
 const styles = StyleSheet.create({
   searchBar: {
@@ -102,9 +121,6 @@ const styles = StyleSheet.create({
     color: "#FFF",
     borderRadius: 3,
     textAlign: "center"
-  },
-  container: {
-    //marginVertical: 20
   },
   backgroundContainer: {
     height: 130,

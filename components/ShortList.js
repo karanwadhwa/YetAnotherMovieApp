@@ -5,10 +5,20 @@ import { Text, View, Caption } from "@shoutem/ui";
 import {} from "react-native-elements";
 import { Icon } from "expo";
 
-import { setSelectedMovieList } from "../store/actions/movies";
-import { setSelectedTVList } from "../store/actions/tv";
+import { setSelectedMovieList, selectMovie } from "../store/actions/movies";
+import { setSelectedTVList, selectTV } from "../store/actions/tv";
 
 class ShortList extends Component {
+  openSelectedPage = (id, title) => {
+    if (!!title) {
+      this.props.selectMovie(id);
+      this.props.navigation.navigate("SelectedMovieScreen");
+    } else {
+      this.props.selectTV(id);
+      this.props.navigation.navigate("SelectedTVScreen");
+    }
+  };
+
   render() {
     const { title, data, navigation, navigateTo } = this.props;
     return (
@@ -54,6 +64,7 @@ class ShortList extends Component {
                 marginRight: 15,
                 width: 120
               }}
+              onPress={() => this.openSelectedPage(item.id, item.title)}
             >
               <Image
                 source={{
@@ -87,7 +98,7 @@ class ShortList extends Component {
 
 export default connect(
   null,
-  { setSelectedMovieList, setSelectedTVList }
+  { setSelectedMovieList, selectMovie, setSelectedTVList, selectTV }
 )(ShortList);
 
 const styles = StyleSheet.create({

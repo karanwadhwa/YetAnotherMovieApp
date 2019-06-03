@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { View, Text, Title, Caption, Subtitle } from "@shoutem/ui";
 import Swiper from "react-native-swiper";
@@ -6,6 +7,9 @@ import { Image } from "react-native-elements";
 import Ionicon from "@expo/vector-icons/Ionicons";
 
 import Genres from "../constants/genres.js";
+
+import { selectMovie } from "../store/actions/movies";
+import { selectTV } from "../store/actions/tv";
 
 class Carousel extends Component {
   renderGenres = genre_ids => {
@@ -17,6 +21,16 @@ class Carousel extends Component {
         {genres.join(", ")}
       </Caption>
     );
+  };
+
+  openSelectedPage = (id, title) => {
+    if (!!title) {
+      this.props.selectMovie(id);
+      this.props.navigation.navigate("SelectedMovieScreen");
+    } else {
+      this.props.selectTV(id);
+      this.props.navigation.navigate("SelectedTVScreen");
+    }
   };
 
   render() {
@@ -38,7 +52,10 @@ class Carousel extends Component {
               vote_average,
               genre_ids
             }) => (
-              <TouchableWithoutFeedback key={id} onPress={() => alert(title)}>
+              <TouchableWithoutFeedback
+                key={id}
+                onPress={() => this.openSelectedPage(id, title)}
+              >
                 <View>
                   <Image
                     source={{
@@ -86,7 +103,10 @@ class Carousel extends Component {
   }
 }
 
-export default Carousel;
+export default connect(
+  null,
+  { selectMovie, selectTV }
+)(Carousel);
 
 const styles = StyleSheet.create({
   backdrop: {

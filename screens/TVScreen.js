@@ -30,7 +30,12 @@ class TVScreen extends React.Component {
           <TextInput placeholder="Search" style={styles.searchBar} />
         </View>
 
-        {this.props.tv.popular && <Carousel items={this.props.tv.popular} />}
+        {this.props.tv.popular && (
+          <Carousel
+            items={this.props.tv.popular}
+            navigation={this.props.navigation}
+          />
+        )}
 
         <ShortList
           title="Popular"

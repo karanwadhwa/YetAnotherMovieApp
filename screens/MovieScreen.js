@@ -38,7 +38,10 @@ class MovieScreen extends React.Component {
         </View>
 
         {this.props.movies.popular && (
-          <Carousel items={this.props.movies.popular} />
+          <Carousel
+            items={this.props.movies.popular}
+            navigation={this.props.navigation}
+          />
         )}
 
         <ShortList
