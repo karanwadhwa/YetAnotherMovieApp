@@ -1,7 +1,8 @@
 import {
   FETCH_TV_POPULAR,
   FETCH_TV_TOP_RATED,
-  SET_SELECTED_TV_LIST
+  SET_SELECTED_TV_LIST,
+  SELECT_TV
 } from "./types";
 import { API_KEY } from "react-native-dotenv";
 
@@ -30,4 +31,17 @@ export const setSelectedTVList = (listTitle, listData) => {
     type: SET_SELECTED_TV_LIST,
     payload: { listTitle, listData }
   };
+};
+
+export const selectTV = id => dispatch => {
+  tmdb
+    .get(
+      `/tv/${id}?api_key=${API_KEY}&append_to_response=similar,recommendations,credits`
+    )
+    .then(response => {
+      dispatch({
+        type: SELECT_TV,
+        payload: response.data
+      });
+    });
 };

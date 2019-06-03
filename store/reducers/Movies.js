@@ -3,7 +3,8 @@ import {
   FETCH_MOVIES_TOP_RATED,
   FETCH_MOVIES_UPCOMING,
   FETCH_MOVIES_NOW_PLAYING,
-  SET_SELECTED_MOVIE_LIST
+  SET_SELECTED_MOVIE_LIST,
+  SELECT_MOVIE
 } from "../actions/types";
 
 initialState = {
@@ -11,6 +12,7 @@ initialState = {
   topRated: [],
   nowPlaying: [],
   upcoming: [],
+  selected: {},
   selectedList: {
     listTitle: "",
     listData: []
@@ -46,6 +48,11 @@ export default (state = initialState, action) => {
           listTitle: action.payload.listTitle,
           listData: action.payload.listData
         }
+      };
+    case SELECT_MOVIE:
+      return {
+        ...state,
+        selected: action.payload
       };
     default:
       return state;
