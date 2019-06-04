@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, View, ActivityIndicator, StyleSheet } from "react-native";
+import { ScrollView, ActivityIndicator, StyleSheet } from "react-native";
+import { Text, View } from "@shoutem/ui";
+
+import SelectedScreenHeader from "../components/SelectedScreenHeader";
 
 class SelectedMovieScreen extends Component {
   static navigationOptions = {
@@ -10,11 +13,15 @@ class SelectedMovieScreen extends Component {
 
   render() {
     return !!this.props.movie ? (
-      <View>
-        <Text>{this.props.movie.title} </Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <SelectedScreenHeader media={this.props.movie} />
+      </ScrollView>
     ) : (
-      <ActivityIndicator size="large" style={styles.activityIndicator} />
+      <ActivityIndicator
+        size="large"
+        color="white"
+        style={styles.activityIndicator}
+      />
     );
   }
 }
@@ -28,9 +35,15 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(SelectedMovieScreen);
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#141B31"
+  },
   activityIndicator: {
     flex: 1,
+    width: "100%",
     alignSelf: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "#141B31"
   }
 });
