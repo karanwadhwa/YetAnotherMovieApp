@@ -9,7 +9,7 @@ import {
   Linking,
   StyleSheet
 } from "react-native";
-import { View, Row, Text, Title, Subtitle, Divider } from "@shoutem/ui";
+import { View, Text, Title, Subtitle, Divider } from "@shoutem/ui";
 
 import SelectedScreenHeader from "../components/SelectedScreenHeader";
 import ExternalLinks from "../components/ExternalLinks";
@@ -27,7 +27,7 @@ class SelectedMovieScreen extends Component {
       <FlatList
         horizontal
         data={cast.slice(0, 15)}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.cast_id.toString()}
         style={{ paddingVertical: 15 }}
         renderItem={({ item }) =>
           !!item.profile_path && (
@@ -107,7 +107,7 @@ class SelectedMovieScreen extends Component {
 
           <View styleName="horizontal space-between">
             <Subtitle style={styles.text}>Runtime:</Subtitle>
-            <Subtitle style={styles.text}>{runtime} minutes</Subtitle>
+            <Subtitle style={styles.text}>{runtime}sm</Subtitle>
           </View>
 
           <View styleName="horizontal space-between">
