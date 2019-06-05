@@ -56,7 +56,7 @@ export const setSelectedMovieList = (listTitle, listData) => {
 export const selectMovie = id => dispatch => {
   tmdb
     .get(
-      `/movie/${id}?api_key=${API_KEY}&append_to_response=similar,recommendations,credits,images`
+      `/movie/${id}?api_key=${API_KEY}&append_to_response=external_ids,images,similar,recommendations,credits`
     )
     .then(response => {
       dispatch({

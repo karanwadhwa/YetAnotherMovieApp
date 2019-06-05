@@ -36,7 +36,7 @@ export const setSelectedTVList = (listTitle, listData) => {
 export const selectTV = id => dispatch => {
   tmdb
     .get(
-      `/tv/${id}?api_key=${API_KEY}&append_to_response=similar,recommendations,credits,images`
+      `/tv/${id}?api_key=${API_KEY}&append_to_response=external_ids,images,similar,recommendations,credits`
     )
     .then(response => {
       dispatch({

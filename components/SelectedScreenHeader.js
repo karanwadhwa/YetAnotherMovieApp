@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Image, StyleSheet } from "react-native";
-import { Text, View, Title, Caption } from "@shoutem/ui";
+import { Text, View, Title, Caption, Heading } from "@shoutem/ui";
 import Swiper from "react-native-swiper";
 import { Icon } from "expo";
 
@@ -47,9 +47,9 @@ class SelectedScreenHeader extends Component {
               width: "60%"
             }}
           >
-            <Title styleName="multiline" style={styles.posterText}>
+            <Heading styleName="multiline" style={styles.posterText}>
               {title || name}
-            </Title>
+            </Heading>
             <Title style={styles.posterText}>
               <Icon.Ionicons name="ios-star" size={18} color="#FFCF00" />{" "}
               {vote_average}
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     height: 180,
     zIndex: 1,
     borderRadius: 5,
-    marginHorizontal: 15
+    marginRight: 15
   },
   posterText: {
     backgroundColor: "#141B31",

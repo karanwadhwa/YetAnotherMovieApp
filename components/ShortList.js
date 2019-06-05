@@ -33,26 +33,29 @@ class ShortList extends Component {
             marginBottom: 15
           }}
         >
-          <Text style={styles.titleText}>{title}</Text>
-          <TouchableOpacity
-            onPress={() => {
-              data[0].name
-                ? this.props.setSelectedTVList(title, data)
-                : this.props.setSelectedMovieList(title, data);
-              navigation.navigate(navigateTo);
-            }}
-          >
-            <Text
-              style={{
-                color: "#FFF",
-                opacity: 0.6,
-                paddingVertical: 5,
-                paddingLeft: 5
+          {!!title && <Text style={styles.titleText}>{title}</Text>}
+
+          {!!navigateTo && (
+            <TouchableOpacity
+              onPress={() => {
+                data[0].name
+                  ? this.props.setSelectedTVList(title, data)
+                  : this.props.setSelectedMovieList(title, data);
+                navigation.navigate(navigateTo);
               }}
             >
-              See All <Icon.Feather name="arrow-right" />
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={{
+                  color: "#FFF",
+                  opacity: 0.6,
+                  paddingVertical: 5,
+                  paddingLeft: 5
+                }}
+              >
+                See All <Icon.Feather name="arrow-right" />
+              </Text>
+            </TouchableOpacity>
+          )}
         </View>
         <FlatList
           horizontal

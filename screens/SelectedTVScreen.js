@@ -14,9 +14,16 @@ class SelectedTVScreen extends Component {
     return !!this.props.tv ? (
       <ScrollView style={styles.container}>
         <SelectedScreenHeader media={this.props.tv} />
+        <View style={styles.body}>
+          <Text>{this.props.tv.name}</Text>
+        </View>
       </ScrollView>
     ) : (
-      <ActivityIndicator size="large" style={styles.activityIndicator} />
+      <ActivityIndicator
+        size="large"
+        color="white"
+        style={styles.activityIndicator}
+      />
     );
   }
 }
@@ -40,5 +47,18 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     backgroundColor: "#141B31"
+  },
+  body: {
+    padding: 15
+  },
+  text: {
+    color: "#FFF"
+  },
+  poster: {
+    width: 120,
+    height: 180,
+    zIndex: 1,
+    borderRadius: 5,
+    marginBottom: 8
   }
 });
