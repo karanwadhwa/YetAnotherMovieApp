@@ -41,21 +41,9 @@ class LongList extends Component {
     const { title, data } = this.props;
     return (
       <View>
-        <View
-          styleName="horizontal space-between v-center"
-          style={{ paddingBottom: 10 }}
-        >
-          <Text
-            style={{
-              fontSize: 40,
-              color: "#FFF",
-              width: "60%"
-            }}
-          >
-            {title}
-          </Text>
-          <TextInput placeholder="Search" style={styles.searchBar} />
-        </View>
+        <Text style={{ fontSize: 40, color: "#FFF", marginBottom: 10 }}>
+          {title}
+        </Text>
 
         <FlatList
           data={data}
