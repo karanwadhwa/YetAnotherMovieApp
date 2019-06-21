@@ -5,7 +5,7 @@ import {
   SELECT_TV
 } from "../actions/types";
 
-initialState = {
+const initialState = {
   popular: [],
   topRated: [],
   selected: {},

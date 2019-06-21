@@ -7,7 +7,7 @@ import {
   SELECT_MOVIE
 } from "../actions/types";
 
-initialState = {
+const initialState = {
   popular: [],
   topRated: [],
   nowPlaying: [],
