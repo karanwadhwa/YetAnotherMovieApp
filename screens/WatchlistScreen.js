@@ -1,15 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-class FavouritesScreen extends React.Component {
+class Watchlist extends React.Component {
   static navigationOptions = {
-    title: "Favourites"
+    title: "Watchlist",
+    header: null
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Favourites</Text>
+        <Text>Watchlist</Text>
       </View>
     );
   }
@@ -23,4 +24,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default FavouritesScreen;
+export default Watchlist;

@@ -12,7 +12,7 @@ import SelectedTVScreen from "../screens/SelectedTVScreen";
 import TVScreen from "../screens/TVScreen";
 import TVListScreen from "../screens/TVListScreen";
 import DiscoverScreen from "../screens/DiscoverScreen";
-import FavouritesScreen from "../screens/FavouritesScreen";
+import WatchlistScreen from "../screens/WatchlistScreen";
 
 const MovieStack = createStackNavigator({
   Movies: MovieScreen,
@@ -51,14 +51,14 @@ DiscoverStack.navigationOptions = {
   )
 };
 
-const FavouritesStack = createStackNavigator({
-  Favourites: FavouritesScreen
+const WatchlistStack = createStackNavigator({
+  Watchlist: WatchlistScreen
 });
 
-FavouritesStack.navigationOptions = {
-  tabBarLabel: "Favourites",
+WatchlistStack.navigationOptions = {
+  tabBarLabel: "Watchlist",
   tabBarIcon: ({ tintColor }) => (
-    <Icon.Feather name="home" size={24} color={tintColor} />
+    <Icon.Feather name="bookmark" size={24} color={tintColor} />
   )
 };
 
@@ -67,7 +67,7 @@ const MainTabNavigator = createBottomTabNavigator(
     MovieStack,
     TVStack,
     DiscoverStack,
-    FavouritesStack
+    WatchlistStack
   },
   {
     tabBarOptions: {
