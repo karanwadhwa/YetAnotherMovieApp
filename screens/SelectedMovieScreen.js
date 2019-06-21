@@ -10,10 +10,13 @@ import {
   StyleSheet
 } from "react-native";
 import { View, Text, Title, Subtitle, Divider } from "@shoutem/ui";
+import { Icon } from "expo";
 
 import SelectedScreenHeader from "../components/SelectedScreenHeader";
 import ExternalLinks from "../components/ExternalLinks";
 import ShortList from "../components/ShortList";
+
+import { addToWatchlistMovie } from "../store/actions/watchlist";
 
 class SelectedMovieScreen extends Component {
   static navigationOptions = {
@@ -107,7 +110,7 @@ class SelectedMovieScreen extends Component {
 
           <View styleName="horizontal space-between">
             <Subtitle style={styles.text}>Runtime:</Subtitle>
-            <Subtitle style={styles.text}>{runtime}sm</Subtitle>
+            <Subtitle style={styles.text}>{runtime}min</Subtitle>
           </View>
 
           <View styleName="horizontal space-between">
@@ -166,9 +169,13 @@ class SelectedMovieScreen extends Component {
   }
 
   render() {
-    return !!this.props.movie ? (
+    return !!this.props.movie.id ? (
       <ScrollView style={styles.container}>
-        <SelectedScreenHeader media={this.props.movie} />
+        <SelectedScreenHeader
+          media={this.props.movie}
+          watchlist={this.props.watchlist}
+          addToWatchlist={this.props.addToWatchlistMovie}
+        />
         {this.renderBody()}
       </ScrollView>
     ) : (
@@ -183,11 +190,15 @@ class SelectedMovieScreen extends Component {
 
 const mapStateToProps = state => {
   return {
-    movie: state.movies.selected
+    movie: state.movies.selected,
+    watchlist: state.watchlist.movies
   };
 };
 
-export default connect(mapStateToProps)(SelectedMovieScreen);
+export default connect(
+  mapStateToProps,
+  { addToWatchlistMovie }
+)(SelectedMovieScreen);
 
 const styles = StyleSheet.create({
   container: {

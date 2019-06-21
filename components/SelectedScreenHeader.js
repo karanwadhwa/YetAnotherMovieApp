@@ -1,19 +1,13 @@
 import React, { Component } from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, TouchableOpacity, StyleSheet } from "react-native";
 import { Text, View, Title, Caption, Heading } from "@shoutem/ui";
 import Swiper from "react-native-swiper";
 import { Icon } from "expo";
 
 class SelectedScreenHeader extends Component {
   render() {
-    const {
-      title,
-      name,
-      vote_average,
-      poster_path,
-      images,
-      genres
-    } = this.props.media;
+    const { media, watchlist, addToWatchlist } = this.props;
+    const { title, name, vote_average, poster_path, images, genres } = media;
     return (
       <View style={{ marginBottom: -150 }}>
         <Swiper
@@ -58,6 +52,32 @@ class SelectedScreenHeader extends Component {
               {genres.map(genre => genre.name).join(", ")}
             </Caption>
           </View>
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            alignItems: "flex-end",
+            width: "100%"
+          }}
+        >
+          <TouchableOpacity
+            onPress={() => addToWatchlist(media)}
+            style={{
+              paddingHorizontal: 15,
+              paddingBottom: 8,
+              marginRight: 10
+            }}
+          >
+            <Icon.Ionicons
+              name="ios-bookmark"
+              size={38}
+              color={
+                watchlist.some(item => item.id === media.id)
+                  ? "#FFCF00"
+                  : "#DDEEFF"
+              }
+            />
+          </TouchableOpacity>
         </View>
       </View>
     );

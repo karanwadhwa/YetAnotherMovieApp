@@ -13,6 +13,8 @@ import SelectedScreenHeader from "../components/SelectedScreenHeader";
 import ExternalLinks from "../components/ExternalLinks";
 import ShortList from "../components/ShortList";
 
+import { addToWatchlistTV } from "../store/actions/watchlist";
+
 class SelectedTVScreen extends Component {
   static navigationOptions = {
     title: "TV Shows",
@@ -115,7 +117,7 @@ class SelectedTVScreen extends Component {
 
           <View styleName="horizontal space-between">
             <Subtitle style={styles.text}>Episode Runtime:</Subtitle>
-            <Subtitle style={styles.text}>{episode_run_time}m</Subtitle>
+            <Subtitle style={styles.text}>{episode_run_time}min</Subtitle>
           </View>
 
           {/* <View styleName="horizontal space-between">
@@ -167,9 +169,13 @@ class SelectedTVScreen extends Component {
   }
 
   render() {
-    return !!this.props.tv ? (
+    return !!this.props.tv.id ? (
       <ScrollView style={styles.container}>
-        <SelectedScreenHeader media={this.props.tv} />
+        <SelectedScreenHeader
+          media={this.props.tv}
+          watchlist={this.props.watchlist}
+          addToWatchlist={this.props.addToWatchlistTV}
+        />
         {this.renderBody()}
       </ScrollView>
     ) : (
@@ -184,11 +190,15 @@ class SelectedTVScreen extends Component {
 
 const mapStateToProps = state => {
   return {
-    tv: state.tv.selected
+    tv: state.tv.selected,
+    watchlist: state.watchlist.tv
   };
 };
 
-export default connect(mapStateToProps)(SelectedTVScreen);
+export default connect(
+  mapStateToProps,
+  { addToWatchlistTV }
+)(SelectedTVScreen);
 
 const styles = StyleSheet.create({
   container: {
