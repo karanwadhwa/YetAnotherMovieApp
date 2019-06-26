@@ -83,7 +83,13 @@ class LongList extends Component {
                       />{" "}
                       {item.vote_average}
                     </Subtitle>
-                    {this.renderGenres(item.genre_ids)}
+                    {item.genres ? (
+                      <Caption numberOfLines={2} style={{ color: "#FFF" }}>
+                        {item.genres.map(genre => genre.name).join(", ")}
+                      </Caption>
+                    ) : (
+                      this.renderGenres(item.genre_ids)
+                    )}
                   </View>
                 </View>
               </TouchableOpacity>
