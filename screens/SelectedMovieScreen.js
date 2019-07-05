@@ -83,7 +83,7 @@ class SelectedMovieScreen extends Component {
     } = this.props.movie;
     return (
       <View style={styles.body}>
-        <Subtitle style={{ color: "#FFF", alignSelf: "center" }}>
+        <Subtitle style={{ color: "#FFF", textAlign: "center" }}>
           {tagline}
         </Subtitle>
 
