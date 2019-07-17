@@ -22,6 +22,7 @@ export const setSearchLoading = () => {
 };
 
 export const fetchSearchResults = searchTerm => dispatch => {
+  if (searchTerm.trim() === "") return;
   dispatch(setSearchLoading());
   tmdb
     .get(`/search/multi?api_key=${API_KEY}&query=${searchTerm}`)
