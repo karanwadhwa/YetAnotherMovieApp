@@ -1,6 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { TextInput, StyleSheet } from "react-native";
-import { View } from "@shoutem/ui";
+import { View, Text } from "@shoutem/ui";
+
+import { setSearchTerm } from "../store/actions/search";
 
 class SearchScreen extends React.Component {
   static navigationOptions = {
@@ -9,10 +12,17 @@ class SearchScreen extends React.Component {
   };
 
   render() {
+    const { search, setSearchTerm } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.searchBarContainer}>
-          <TextInput placeholder="Search" style={styles.searchBar} />
+          <TextInput
+            placeholder="Search"
+            style={styles.searchBar}
+            value={search.searchTerm}
+            onChangeText={searchTerm => setSearchTerm(searchTerm)}
+            onEndEditing={() => alert(search.searchTerm)}
+          />
         </View>
       </View>
     );
@@ -35,4 +45,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SearchScreen;
+const mapStateToProps = state => {
+  return {
+    search: state.search
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { setSearchTerm }
+)(SearchScreen);
