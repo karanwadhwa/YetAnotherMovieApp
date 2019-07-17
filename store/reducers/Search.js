@@ -1,9 +1,15 @@
-import { SET_SEARCH_TERM } from "../actions/types";
+import {
+  SET_SEARCH_TERM,
+  SET_SEARCH_LOADING,
+  SET_SEARCH_RESULTS,
+  ADD_TO_RECENT_SEARCH
+} from "../actions/types";
 
 const initialState = {
   searchTerm: "",
   loading: false,
-  searchResults: []
+  searchResults: [],
+  recents: []
 };
 
 export default (state = initialState, action) => {
@@ -12,6 +18,26 @@ export default (state = initialState, action) => {
       return {
         ...state,
         searchTerm: action.payload
+      };
+    case SET_SEARCH_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
+    case SET_SEARCH_RESULTS:
+      return {
+        ...state,
+        loading: false,
+        searchResults: action.payload
+      };
+    case ADD_TO_RECENT_SEARCH:
+      let recents = [...state.recents];
+      if (recents.length == 10) recents.pop();
+      recents.unshift(action.payload);
+
+      return {
+        ...state,
+        recents
       };
     default:
       return state;
