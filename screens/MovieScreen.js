@@ -12,6 +12,7 @@ import {
   fetchUpcomingMovies,
   fetchNowPlayingMovies
 } from "../store/actions/movies";
+import { setSearchTerm, fetchSearchResults } from "../store/actions/search";
 
 class MovieScreen extends React.Component {
   static navigationOptions = {
@@ -27,6 +28,14 @@ class MovieScreen extends React.Component {
   }
 
   render() {
+    const {
+      search,
+      setSearchTerm,
+      fetchSearchResults,
+      movies,
+      navigation
+    } = this.props;
+
     return (
       <ScrollView style={styles.container}>
         <View
@@ -34,38 +43,44 @@ class MovieScreen extends React.Component {
           style={{ paddingBottom: 10 }}
         >
           <Text style={{ fontSize: 45, color: "#FFF" }}>Movies</Text>
-          <TextInput placeholder="Search" style={styles.searchBar} />
+          <TextInput
+            placeholder="Search"
+            style={styles.searchBar}
+            value={search.searchTerm}
+            onChangeText={searchTerm => setSearchTerm(searchTerm)}
+            onEndEditing={() => {
+              fetchSearchResults(search.searchTerm);
+              navigation.navigate("Search");
+            }}
+          />
         </View>
 
-        {this.props.movies.popular && (
-          <Carousel
-            items={this.props.movies.popular}
-            navigation={this.props.navigation}
-          />
+        {movies.popular && (
+          <Carousel items={movies.popular} navigation={this.props.navigation} />
         )}
 
         <ShortList
           title="Popular"
-          data={this.props.movies.popular}
-          navigation={this.props.navigation}
+          data={movies.popular}
+          navigation={navigation}
           navigateTo="MovieListScreen"
         />
         <ShortList
           title="Top Rated"
-          data={this.props.movies.topRated}
-          navigation={this.props.navigation}
+          data={movies.topRated}
+          navigation={navigation}
           navigateTo="MovieListScreen"
         />
         <ShortList
           title="Now Playing"
-          data={this.props.movies.nowPlaying}
-          navigation={this.props.navigation}
+          data={movies.nowPlaying}
+          navigation={navigation}
           navigateTo="MovieListScreen"
         />
         <ShortList
           title="Upcoming"
-          data={this.props.movies.upcoming}
-          navigation={this.props.navigation}
+          data={movies.upcoming}
+          navigation={navigation}
           navigateTo="MovieListScreen"
         />
       </ScrollView>
@@ -92,7 +107,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    movies: state.movies
+    movies: state.movies,
+    search: state.search
   };
 };
 
@@ -102,6 +118,8 @@ export default connect(
     fetchPopularMovies,
     fetchTopRatedMovies,
     fetchUpcomingMovies,
-    fetchNowPlayingMovies
+    fetchNowPlayingMovies,
+    setSearchTerm,
+    fetchSearchResults
   }
 )(MovieScreen);
