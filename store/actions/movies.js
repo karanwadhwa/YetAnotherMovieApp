@@ -7,7 +7,6 @@ import {
   SELECT_MOVIE
 } from "./types";
 import { API_KEY } from "react-native-dotenv";
-import axios from "axios";
 import { tmdb } from "../../config/api";
 
 export const fetchPopularMovies = () => dispatch => {

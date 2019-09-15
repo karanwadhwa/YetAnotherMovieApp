@@ -88,7 +88,7 @@ class LongList extends Component {
                         {item.genres.map(genre => genre.name).join(", ")}
                       </Caption>
                     ) : (
-                      this.renderGenres(item.genre_ids)
+                      !!item.genre_ids && this.renderGenres(item.genre_ids)
                     )}
                   </View>
                 </View>
