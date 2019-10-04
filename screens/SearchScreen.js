@@ -118,6 +118,9 @@ const styles = StyleSheet.create({
     color: "#FFF",
     borderRadius: 3
   },
+  searchBarContainer: {
+    marginBottom: 15
+  },
   center: {
     flex: 1,
     alignSelf: "center",

@@ -41,9 +41,11 @@ class LongList extends Component {
     const { title, data } = this.props;
     return (
       <View>
-        <Text style={{ fontSize: 40, color: "#FFF", marginBottom: 10 }}>
-          {title}
-        </Text>
+        {title && (
+          <Text style={{ fontSize: 40, color: "#FFF", marginBottom: 10 }}>
+            {title}
+          </Text>
+        )}
 
         <FlatList
           data={data}
