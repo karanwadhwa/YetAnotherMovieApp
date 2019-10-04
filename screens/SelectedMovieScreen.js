@@ -10,7 +10,6 @@ import {
   StyleSheet
 } from "react-native";
 import { View, Text, Title, Subtitle, Divider } from "@shoutem/ui";
-import { Icon } from "expo";
 
 import SelectedScreenHeader from "../components/SelectedScreenHeader";
 import ExternalLinks from "../components/ExternalLinks";
@@ -42,9 +41,7 @@ class SelectedMovieScreen extends Component {
             >
               <Image
                 source={{
-                  uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${
-                    item.profile_path
-                  }`
+                  uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${item.profile_path}`
                 }}
                 style={styles.poster}
               />

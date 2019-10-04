@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Image, TouchableOpacity, StyleSheet } from "react-native";
 import { Text, View, Title, Caption, Heading } from "@shoutem/ui";
 import Swiper from "react-native-swiper";
-import { Icon } from "expo";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 class SelectedScreenHeader extends Component {
   render() {
@@ -20,9 +20,7 @@ class SelectedScreenHeader extends Component {
             <Image
               key={backdrop.file_path}
               source={{
-                uri: `https://image.tmdb.org/t/p/w1000_and_h563_face${
-                  backdrop.file_path
-                }`
+                uri: `https://image.tmdb.org/t/p/w1000_and_h563_face${backdrop.file_path}`
               }}
               style={styles.backdrop}
             />
@@ -45,7 +43,7 @@ class SelectedScreenHeader extends Component {
               {title || name}
             </Heading>
             <Title style={styles.posterText}>
-              <Icon.Ionicons name="ios-star" size={18} color="#FFCF00" />{" "}
+              <Ionicons name="ios-star" size={18} color="#FFCF00" />{" "}
               {vote_average}
             </Title>
             <Caption style={styles.posterText}>
@@ -68,7 +66,7 @@ class SelectedScreenHeader extends Component {
               marginRight: 10
             }}
           >
-            <Icon.Ionicons
+            <Ionicons
               name="ios-bookmark"
               size={38}
               color={

@@ -1,9 +1,7 @@
 import React from "react";
-import {
-  createStackNavigator,
-  createBottomTabNavigator
-} from "react-navigation";
-import { Icon } from "expo";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createStackNavigator } from "react-navigation-stack";
+import Feather from "@expo/vector-icons/Feather";
 
 import MovieScreen from "../screens/MovieScreen";
 import MovieListScreen from "../screens/MovieListScreen";
@@ -23,7 +21,7 @@ const MovieStack = createStackNavigator({
 MovieStack.navigationOptions = {
   tabBarLabel: "Movies",
   tabBarIcon: ({ tintColor }) => (
-    <Icon.Feather name="film" size={24} color={tintColor} />
+    <Feather name="film" size={24} color={tintColor} />
   )
 };
 
@@ -36,7 +34,7 @@ const TVStack = createStackNavigator({
 TVStack.navigationOptions = {
   tabBarLabel: "TV",
   tabBarIcon: ({ tintColor }) => (
-    <Icon.Feather name="tv" size={24} color={tintColor} />
+    <Feather name="tv" size={24} color={tintColor} />
   )
 };
 
@@ -47,7 +45,7 @@ const SearchStack = createStackNavigator({
 SearchStack.navigationOptions = {
   tabBarLabel: "Search",
   tabBarIcon: ({ tintColor }) => (
-    <Icon.Feather name="search" size={24} color={tintColor} />
+    <Feather name="search" size={24} color={tintColor} />
   )
 };
 
@@ -58,7 +56,7 @@ const WatchlistStack = createStackNavigator({
 WatchlistStack.navigationOptions = {
   tabBarLabel: "Watchlist",
   tabBarIcon: ({ tintColor }) => (
-    <Icon.Feather name="bookmark" size={24} color={tintColor} />
+    <Feather name="bookmark" size={24} color={tintColor} />
   )
 };
 

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FlatList, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { Text, View, Caption } from "@shoutem/ui";
-import {} from "react-native-elements";
-import { Icon } from "expo";
+import Feather from "@expo/vector-icons/Feather";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 import { setSelectedMovieList, selectMovie } from "../store/actions/movies";
 import { setSelectedTVList, selectTV } from "../store/actions/tv";
@@ -52,7 +52,7 @@ class ShortList extends Component {
                   paddingLeft: 5
                 }}
               >
-                See All <Icon.Feather name="arrow-right" />
+                See All <Feather name="arrow-right" />
               </Text>
             </TouchableOpacity>
           )}
@@ -71,9 +71,7 @@ class ShortList extends Component {
             >
               <Image
                 source={{
-                  uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${
-                    item.poster_path
-                  }`
+                  uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${item.poster_path}`
                 }}
                 style={styles.poster}
               />
@@ -87,7 +85,7 @@ class ShortList extends Component {
                 {item.title || item.name}
               </Text>
               <Text>
-                <Icon.Ionicons name="ios-star" size={14} color="#FFCF00" />{" "}
+                <Ionicons name="ios-star" size={14} color="#FFCF00" />{" "}
                 {item.vote_average}
                 {"  "}({item.vote_count})
               </Text>

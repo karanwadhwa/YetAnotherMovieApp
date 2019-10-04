@@ -8,12 +8,12 @@ import {
   StyleSheet
 } from "react-native";
 import { View, Text, Title, Subtitle, Caption } from "@shoutem/ui";
-import { Icon } from "expo";
 
 import Genres from "../constants/genres.js";
 
 import { selectMovie } from "../store/actions/movies";
 import { selectTV } from "../store/actions/tv";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 class LongList extends Component {
   renderGenres = genre_ids => {
@@ -55,9 +55,7 @@ class LongList extends Component {
               >
                 <Image
                   source={{
-                    uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${
-                      item.poster_path
-                    }`
+                    uri: `https://image.tmdb.org/t/p/w300_and_h450_bestv2${item.poster_path}`
                   }}
                   style={styles.poster}
                 />
@@ -76,11 +74,7 @@ class LongList extends Component {
                       {item.title || item.name}
                     </Title>
                     <Subtitle style={{ color: "#FFF" }}>
-                      <Icon.Ionicons
-                        name="ios-star"
-                        size={16}
-                        color="#FFCF00"
-                      />{" "}
+                      <Ionicons name="ios-star" size={16} color="#FFCF00" />{" "}
                       {item.vote_average}
                     </Subtitle>
                     {item.genres ? (
