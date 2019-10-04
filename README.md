@@ -39,7 +39,7 @@ This project makes use of [TheMovieDatabase (TMDb API)](https://www.themoviedb.o
 
 ## LICENSE
 
-This project is licensed under the [MIT License](https://github.com/karanwadhwa/YetAnotherMovieApp/LICENSE)
+This project is licensed under the [MIT License](https://github.com/karanwadhwa/YetAnotherMovieApp/blob/master/LICENSE)
 ```
 YetAnotherMovieApp
 Copyright (c) 2019 Karan Wadhwa (https://github.com/karanwadhwa)
