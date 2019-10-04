@@ -1,3 +1,5 @@
+import { PERSIST_REHYDRATE } from "redux-persist/lib/constants";
+
 import {
   ADD_TO_WATCHLIST_MOVIE,
   ADD_TO_WATCHLIST_TV,
@@ -14,6 +16,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case PERSIST_REHYDRATE:
+      return action.payload.watchlist || initialState;
     case ADD_TO_WATCHLIST_MOVIE:
       let movies = [...state.movies];
       let index = movies.findIndex(movie => movie.id === action.payload.id);

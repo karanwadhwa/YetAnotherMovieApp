@@ -1,3 +1,5 @@
+import { PERSIST_REHYDRATE } from "redux-persist/lib/constants";
+
 import {
   SET_SEARCH_TERM,
   SET_SEARCH_LOADING,
@@ -14,6 +16,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case PERSIST_REHYDRATE:
+      return action.payload.search || initialState;
     case SET_SEARCH_TERM:
       return {
         ...state,
