@@ -1,11 +1,16 @@
 # YetAnotherMovieApp
+
 ReactNative App to discover movies and TV shows using the TMDb API
 
 ## Expo
 
-[Download Expo Client App](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US)
+####[Download Expo Client App](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US)
 
-With an Android phone, scan the QR code available [here](https://expo.io/@karanwadhwa/YAMA) with your [Expo mobile app](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US) to load this project immediately.
+[![Expo QR code](https://github.com/karanwadhwa/YetAnotherMovieApp/blob/master/demo/YetAnotherMovieAppExpoQRcode.PNG)](https://expo.io/@karanwadhwa/YAMA)
+
+With an Android phone, scan this QR code with your [Expo mobile app](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US) to load this project immediately.
+
+Or Request a link [here](https://expo.io/@karanwadhwa/YAMA).
 
 ## Installation
 
@@ -15,24 +20,29 @@ With an Android phone, scan the QR code available [here](https://expo.io/@karanw
 - [Yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/)
 - [Expo](https://expo.io/)
 
-
 Clone this repo
+
 ```sh
 $ git clone git@github.com:karanwadhwa/YetAnotherMovieApp.git
 $ cd YetAnotherMovieApp
 $ yarn or npm install
 $ yarn global add expo-cli or npm install -g expo-cli
 ```
+
 [Get your TMDb API key](https://www.themoviedb.org/faq/api)
 
 Create `.env` file in your root directory and add the following
+
 ```js
-API_KEY = "<your_tmdb_api_key>"
+API_KEY = "<your_tmdb_api_key>";
 ```
+
 ### How to start
+
 ```sh
 $ expo start
 ```
+
 ### API
 
 This project makes use of [TheMovieDatabase (TMDb API)](https://www.themoviedb.org/documentation/api) but is neither endorsed nor certified by TMDb.
@@ -40,6 +50,7 @@ This project makes use of [TheMovieDatabase (TMDb API)](https://www.themoviedb.o
 ## LICENSE
 
 This project is licensed under the [MIT License](https://github.com/karanwadhwa/YetAnotherMovieApp/blob/master/LICENSE)
+
 ```
 YetAnotherMovieApp
 Copyright (c) 2019 Karan Wadhwa (https://github.com/karanwadhwa)
