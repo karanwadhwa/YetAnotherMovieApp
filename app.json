@@ -20,6 +20,11 @@
     "ios": {
       "supportsTablet": true
     },
+    "android": {
+      "package": "com.karanwadhwa.YAMA",
+      "versionCode": 1,
+      "permissions": [""]
+    },
     "androidStatusBar": {
       "backgroundColor": "#141B31"
     },
