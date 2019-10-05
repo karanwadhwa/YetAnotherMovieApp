@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { StyleSheet, TouchableWithoutFeedback } from "react-native";
-import { View, Text, Title, Caption, Subtitle } from "@shoutem/ui";
+import { View, Text, Title, Caption, Subtitle, Image } from "@shoutem/ui";
 import Swiper from "react-native-swiper";
-import { Image } from "react-native-elements";
 import Ionicon from "@expo/vector-icons/Ionicons";
 
 import Genres from "../constants/genres.js";
