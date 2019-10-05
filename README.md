@@ -17,21 +17,22 @@ With an Android phone, scan this QR code with your [Expo mobile app](https://pla
 Or Request a link [here](https://expo.io/@karanwadhwa/YAMA).
 
 #Screenshots
-<img src="/demo/screenshots/splash screen.png" vspace="5" hspace="5"  align= "left" height="500" width="275">
-<img src="/demo/screenshots/movies home 1.png" vspace="5" hspace="5"  align= "left"  height="500" width="275" >
-<img src="/demo/screenshots/movies home 2.png" vspace="5" hspace="5"  height="500" width="275" >
-<img src="/demo/screenshots/movie screen 1.png" vspace="5" hspace="5"  align= "left" height="500" width="275">
-<img src="/demo/screenshots/movie screen 2.png" vspace="5" hspace="5"  align= "left"  height="500" width="275" >
-<img src="/demo/screenshots/movie screen 3.png" vspace="5" hspace="5"  height="500" width="275" >
-<img src="/demo/screenshots/tv home 1.png" vspace="5" hspace="5" align= "left" height="500" width="275" >
-<img src="/demo/screenshots/tv home 2.png"  vspace="5" hspace="5" align= "left" height="500" width="275" >
-<img src="/demo/screenshots/tv screen 1.png" vspace="5"  hspace="5"   height="500" width="275" >
-<img src="/demo/screenshots/tv screen 2.png" vspace="5"  hspace="5"   height="500" width="275" >
-<img src="/demo/screenshots/watchlist movies.png" vspace="5"  hspace="5"   height="500" width="275" >
-<img src="/demo/screenshots/watchlist tv.png" vspace="5"  hspace="5"   height="500" width="275" >
-<img src="/demo/screenshots/home search.png" vspace="5"  hspace="5"   height="500" width="275" >
-<img src="/demo/screenshots/recent searches.png" vspace="5"  hspace="5"   height="500" width="275" >
-<img src="/demo/screenshots/search result.png" vspace="5"  hspace="5"   height="500" width="275" >
+
+<img src="/demo/screenshots/splash screen.png" vspace="5"   align= "left" height="500" width="275">
+<img src="/demo/screenshots/movies home 1.png" vspace="5"   align= "left" height="500" width="275" >
+<img src="/demo/screenshots/movies home 2.png" vspace="5"  height="500" width="275" >
+<img src="/demo/screenshots/movie screen 1.png" vspace="5"  align= "left" height="500" width="275">
+<img src="/demo/screenshots/movie screen 2.png" vspace="5"  align= "left"  height="500" width="275" >
+<img src="/demo/screenshots/movie screen 3.png" vspace="5"  height="500" width="275" >
+<img src="/demo/screenshots/tv home 1.png" vspace="5" align= "left" height="500" width="275" >
+<img src="/demo/screenshots/tv home 2.png"  vspace="5" align= "left" height="500" width="275" >
+<img src="/demo/screenshots/tv screen 1.png" vspace="5" height="500" width="275" >
+<img src="/demo/screenshots/tv screen 2.png" vspace="5" align= "left" height="500" width="275" >
+<img src="/demo/screenshots/watchlist movies.png" vspace="5" align= "left" height="500" width="275" >
+<img src="/demo/screenshots/watchlist tv.png" vspace="5" height="500" width="275" >
+<img src="/demo/screenshots/home search.png" vspace="5" align= "left" height="500" width="275" >
+<img src="/demo/screenshots/recent searches.png" vspace="5" align= "left" height="500" width="275" >
+<img src="/demo/screenshots/search result.png" vspace="5" height="500" width="275" >
 
 ## Installation
 
