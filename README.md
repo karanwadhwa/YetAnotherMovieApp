@@ -4,9 +4,9 @@ ReactNative App to discover movies and TV shows using the TMDb API
 
 ## Expo
 
-####[Download Expo Client App](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US)
+[Download Expo Client App](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US)
 
-[![Expo QR code](https://github.com/karanwadhwa/YetAnotherMovieApp/blob/master/demo/YetAnotherMovieAppExpoQRcode.PNG)](https://expo.io/@karanwadhwa/YAMA)
+[![Expo QR code](https://github.com/karanwadhwa/YetAnotherMovieApp/blob/master/demo/YetAnotherMovieAppQRcode.PNG)](https://expo.io/@karanwadhwa/YAMA)
 
 With an Android phone, scan this QR code with your [Expo mobile app](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US) to load this project immediately.
 
