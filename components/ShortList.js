@@ -12,10 +12,10 @@ class ShortList extends Component {
   openSelectedPage = (id, title) => {
     if (!!title) {
       this.props.selectMovie(id);
-      this.props.navigation.push("SelectedMovieScreen");
+      this.props.navigation.navigate("SelectedMovieScreen");
     } else {
       this.props.selectTV(id);
-      this.props.navigation.push("SelectedTVScreen");
+      this.props.navigation.navigate("SelectedTVScreen");
     }
   };
 
